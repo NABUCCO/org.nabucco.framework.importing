@@ -1,0 +1,33 @@
+package org.nabucco.framework.importing.ui.list.importconfig;
+
+import org.nabucco.framework.importing.facade.datatype.ImportConfiguration;
+
+@Author			Christian Nicolaus
+@Company		PRODYNA AG
+@Date			2010-08-20
+@Description	ListView for ImportConfiguration
+@Id				org.nabucco.framework.importing.ui.list.importconfig.ImportConfigListView
+public ListView ImportConfigListView {
+
+	private Datatype ImportConfiguration[1] importConfig;
+
+	@MappedField 			importConfig.owner
+	@ColumnLabelId			importConfig.owner 
+	@ColumnLabelDefault 	"Owner"
+	private Column owner;
+
+	@MappedField 			importConfig.name
+	@ColumnLabelId			importConfig.name 
+	@ColumnLabelDefault 	"Name"
+	private Column name;
+	
+	@MappedField 			importConfig.description
+	@ColumnLabelId			importConfig.description 
+	@ColumnLabelDefault 	"Description"
+	private Column description;
+	
+	@MappedField 			importConfig.scriptName
+	@ColumnLabelId			importConfig.scriptName 
+	@ColumnLabelDefault 	"Script Name"
+	private Column scriptName;
+}

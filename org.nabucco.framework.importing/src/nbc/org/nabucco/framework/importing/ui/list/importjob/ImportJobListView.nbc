@@ -1,0 +1,29 @@
+package org.nabucco.framework.importing.ui.list.importjob;
+
+import org.nabucco.framework.importing.facade.datatype.ImportJob;
+
+@Author			Christian Nicolaus
+@Company		PRODYNA AG
+@Date			2010-08-20
+@Description	ListView for ImportJob
+@Id				org.nabucco.framework.importing.ui.list.importjob.ImportJobListView
+public ListView ImportJobListView {
+
+	private Datatype ImportJob[1] importJob;
+
+	@MappedField 			importJob.owner
+	@ColumnLabelId			importJob.owner 
+	@ColumnLabelDefault 	"Owner"
+	private Column owner;
+
+	@MappedField 			importJob.name
+	@ColumnLabelId			importJob.name 
+	@ColumnLabelDefault 	"Name"
+	private Column name;
+	
+	@MappedField 			importJob.description
+	@ColumnLabelId			importJob.description 
+	@ColumnLabelDefault 	"Description"
+	private Column description;
+	
+}

@@ -1,0 +1,42 @@
+/*
+* Copyright 2010 PRODYNA AG
+*
+* Licensed under the Eclipse Public License (EPL), Version 1.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.opensource.org/licenses/eclipse-1.0.php or
+* http://nabuccosource.org/License.html
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+package org.nabucco.framework.importing.facade.service.search;
+
+import org.nabucco.framework.base.facade.exception.service.SearchException;
+import org.nabucco.framework.importing.facade.message.search.ImportConfigurationSearchRq;
+import org.nabucco.framework.importing.facade.message.search.ImportJobSearchRq;
+import org.nabucco.framework.importing.facade.message.ImportConfigurationListMsg;
+import org.nabucco.framework.importing.facade.message.ImportJobListMsg;
+
+
+@Author			Lasse Asbach
+@Company		PRODYNA AG
+@Date			2010-07-23
+@Version		1.0
+@Description	Search Service for Importing
+public Service SearchImporting {
+
+	@Inject
+	private EntityManager[1] entityManager;
+
+    @ManualImplementation
+	public ImportConfigurationListMsg searchImportConfiguration(ImportConfigurationSearchRq msg) throws SearchException;
+		
+	@ManualImplementation
+	public ImportJobListMsg searchImportJob(ImportJobSearchRq msg) throws SearchException;
+
+}

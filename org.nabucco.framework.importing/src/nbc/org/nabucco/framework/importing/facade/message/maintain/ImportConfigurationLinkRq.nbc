@@ -1,0 +1,32 @@
+/*
+*  PRODYNA NABUCCO
+*  Copyright 2010, PRODYNA AG
+*/
+package org.nabucco.framework.importing.facade.message.maintain;
+
+import org.nabucco.framework.base.facade.datatype.Number;
+import org.nabucco.framework.importing.facade.datatype.ImportConfiguration;
+import org.nabucco.framework.importing.facade.datatype.LinkOperationType;
+
+
+@Author			Silas Schwarz
+@Company		PRODYNA AG
+@Date			2010-02-08
+@Description	Response message of the executeExport service operation.
+@Version		1.0
+public Message ImportConfigurationLinkRq {
+	
+	@Description	the source ExportConfiguration
+	private Datatype ImportConfiguration[1] source;
+	
+	@Description	the target ExportConfiguration to bind to the source
+	private Datatype ImportConfiguration[1] target;
+	
+	@Description	the priority
+	private Basetype Number[1] priority; 
+	
+	@Description	add(/replace) or remove link
+	@Default		ADD
+	private Enumeration LinkOperationType[1] operation;
+	
+}

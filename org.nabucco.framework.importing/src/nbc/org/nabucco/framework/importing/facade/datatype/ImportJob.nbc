@@ -1,0 +1,71 @@
+/*
+* Copyright 2010 PRODYNA AG
+*
+* Licensed under the Eclipse Public License (EPL), Version 1.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.opensource.org/licenses/eclipse-1.0.php or
+* http://nabuccosource.org/License.html
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
+package org.nabucco.framework.importing.facade.datatype;
+
+import org.nabucco.framework.base.facade.datatype.Name;
+import org.nabucco.framework.base.facade.datatype.Owner;
+import org.nabucco.framework.base.facade.datatype.DateTime;
+import org.nabucco.framework.base.facade.datatype.Description;
+import org.nabucco.framework.base.facade.datatype.NabuccoDatatype;
+
+import org.nabucco.framework.base.facade.datatype.log.LogTrace;
+
+import org.nabucco.framework.importing.facade.datatype.ImportStateType;
+import org.nabucco.framework.importing.facade.datatype.ImportConfiguration;
+
+
+@Author			Lasse Asbach
+@Company		PRODYNA AG
+@Date			2010-07-22
+@Version		1.0
+@Description	Contains information about an executed import-operation.
+public Datatype ImportJob extends NabuccoDatatype {
+
+	@Description	Name of the import job.
+	private Basetype Name[1] name;
+
+	@Description	Owner of the import job.
+	private Basetype Owner[1] owner;
+	
+	@Description	Owner of the import job.
+	private Basetype Description[0..1] description;
+
+	@Description	The time that the import job was started.
+	private Basetype DateTime[1] startTime;
+	
+	@Description	The time that the import job was finished.
+	private Basetype DateTime[1] endTime;
+	
+	@Description	Url to the file(s) to import.
+	private Datatype NabuccoDatatype[1] source;
+	
+	@Description	Log traces of the import job.
+	private Basetype LogTrace[0..1] logTrace;
+	
+	@Description	Error traces of the import job.
+	private Basetype LogTrace[0..1] errorTrace;
+	
+	@Description	State of the import job.
+	@Default	NEW
+	private Enumeration ImportStateType[1] state;
+	
+	@Description	Configuration of the import job.
+	@AssociationStrategy Aggregation
+	@FetchStrategy	EAGER
+	private Datatype ImportConfiguration[1] configuration;
+	
+}
